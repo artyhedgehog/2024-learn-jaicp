@@ -11,7 +11,7 @@ theme: /
             a: Who's there?!
         go!: /BookAWorkplace
         
-    state: CatchAll
+    state: CatchAll || noContext = true
         event!: noMatch
         random:
             a: Forstor ikke, men veldig interessant!
@@ -19,7 +19,7 @@ theme: /
             a: Come again?
             
             
-    state: BookAWorkplace
+    state: BookAWorkplace || modal = true
         q!: * (book | workplace) *
         a: Would you like to book a workplace?
         
@@ -29,9 +29,14 @@ theme: /
             go: /Bye
             
         state: Decline
-            event: noMatch
+            q: * (no | not) *
             a: Oh, well...
             go!: /Bye/ByeBye
+            
+        state: LocalCatchAll
+            event: noMatch
+            a: Just yes or no please!
+            
             
     state: Bye
         
