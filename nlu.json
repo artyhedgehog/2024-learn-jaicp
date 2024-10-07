@@ -1,0 +1,113 @@
+{
+  "project" : {
+    "id" : "minimal_scenario-1000172864-Fid",
+    "name" : "minimal_scenario-1000172864-Fid",
+    "folder" : "/platform"
+  },
+  "settings" : {
+    "language" : "en",
+    "spellingCorrection" : false,
+    "classificationAlgorithm" : "sts",
+    "timezone" : "Europe/Moscow",
+    "extendedSettings" : {
+      "classificationAlgorithmVersion" : 1.0,
+      "useShared" : false
+    },
+    "shared" : false,
+    "validation" : {
+      "phraseValidationEnabled" : true,
+      "answerValidationEnabled" : true,
+      "phraseValidationThreshold" : 0.5,
+      "answerValidationThreshold" : 0.8
+    }
+  },
+  "intents" : [ {
+    "path" : "/bye",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "bye"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
+  }, {
+    "path" : "/hello",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "hello"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
+  } ],
+  "entities" : [ ],
+  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
+  "spellerDictionary" : [ ],
+  "systemEntities" : [ {
+    "name" : "duckling.number",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.ordinal",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.amount-of-money",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.distance",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.quantity",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.temperature",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.volume",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.date",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time-of-day",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.duration",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.phone-number",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.email",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.url",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.interval",
+    "version" : "v2",
+    "enabled" : false
+  } ],
+  "faq" : [ ],
+  "skills" : [ ]
+}
