@@ -3,7 +3,7 @@ require: ./patterns.sc
 theme: /
     
     state: Start
-        q!: *start
+        q!: /start
         q!: $hello
         random:
             a: Hello, world!
