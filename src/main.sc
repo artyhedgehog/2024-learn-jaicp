@@ -6,6 +6,7 @@ theme: /
         q!: *start
         q!: $hello
         q: * (~no [~thank]|~cancel|~stop|~quit|~exit) * || fromState = /Book 
+        q: * (~no [~thank]|~cancel|~stop|~quit|~exit) * || fromState = /CatchAll
         random:
             a: Hello, {{$request.channelType}}!
             a: Greetings, {{$request.channelType}}!
