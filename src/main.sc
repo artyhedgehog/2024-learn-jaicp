@@ -7,9 +7,9 @@ theme: /
         q!: $hello
         q: * (~no [~thank]|~cancel|~stop|~quit|~exit) * || fromState = /Book 
         random:
-            a: Hello, world!
-            a: Greetings!
-            a: Who's there?!
+            a: Hello, {{$request.channelType}}!
+            a: Greetings, {{$request.channelType}}!
+            a: Who's there in {{$request.channelType}}?!
         go!: /Book
         
     state: CatchAll || noContext = true
