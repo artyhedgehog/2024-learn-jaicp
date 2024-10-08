@@ -28,7 +28,7 @@ theme: /
             "A workplace" -> Workplace
             "A meeting room" -> MeetingRoom
             "An auditorium" -> Auditorium
-        
+    
         state: Workplace
             a: There is a desk with a monitor and an armchair.
             go!: /Pay
@@ -48,9 +48,25 @@ theme: /
                 
     state: Pay || modal = true
         a: How would you like to pay?
-        buttons:
-            "Bank card"
-            "Cash"
+        script:
+            $temp.buttons = {
+                bankCard: {
+                    text: "Bank card",
+                    url: 'https://alfabank.ru/',
+                },
+                cash: {
+                    text: 'Cash',
+                    url: 'https://alfabank.ru/atm/map',
+                },
+            }
+        if: $request.channelType === 'telegram'
+            inlineButtons:
+                $temp.buttons.bankCard
+                $temp.buttons.cash
+        else:
+            buttons:
+                "Bank card"
+                "Cash"
             
         state: Any
             q: * (~card | ~cash) *
