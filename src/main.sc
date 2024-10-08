@@ -11,6 +11,13 @@ theme: /
             a: Hello, {{$request.channelType}}!
             a: Greetings, {{$request.channelType}}!
             a: Who's there in {{$request.channelType}}?!
+        script:
+            $response.replies = $response.replies || [];
+            $response.replies.push({
+                type: 'image',
+                imageUrl: 'https://unsplash.com/photos/modern-office-interior-design-concept-3d-rendering-idea-MSyHhSCEevs',
+                text: 'Coworking',
+            });
         go!: /Book
         
     state: CatchAll || noContext = true
