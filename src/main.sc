@@ -28,6 +28,7 @@ theme: /
             a: Come again?
             a: Could you try rephrasing?
             a: Can you repeat in other words?
+        go: /Start
             
     state: Book || modal = true
         a: What would you like to book?
