@@ -21,15 +21,27 @@ theme: /
             
     state: BookAWorkplace || modal = true
         q!: * (book | workplace) *
-        a: Would you like to book a workplace?
+        a: What would you like to book?
+        buttons:
+            "A workplace" -> Workplace
         
-        state: Confirm
-            q: * (yes | sure) *
-            a: Well, you cannot, we aren't open yet!
-            go: /Bye
+        state: Workplace || modal = true
+            a: There is a desk with a monitor and an armchair. How would you like to pay?
+            buttons:
+                "Bank card"
+                "Cash"
             
+            state: Any
+                q: * (~card | ~cash) *
+                a: You can pay in place
+                
+            state: CatchAllLocal
+                q: noMatch
+                a: Sorry, this isn't supported.
+
+
         state: Decline
-            q: * (no | not) *
+            q: * (~no | ~not) *
             a: Oh, well...
             go!: /Bye/ByeBye
             
