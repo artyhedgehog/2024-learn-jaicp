@@ -20,34 +20,32 @@ theme: /
             
             
     state: BookAWorkplace || modal = true
-        q!: * (book | workplace) *
+        q!: * (~book) *
         a: What would you like to book?
         buttons:
             "A workplace" -> Workplace
+            "A meeting room" -> MeetingRoom
+            "An auditorium" -> Auditorium
         
-        state: Workplace || modal = true
-            a: There is a desk with a monitor and an armchair. How would you like to pay?
-            buttons:
-                "Bank card"
-                "Cash"
+        state: Workplace
+            a: There is a desk with a monitor and an armchair.
+            go!: /Pay
             
-            state: Any
-                q: * (~card | ~cash) *
-                a: You can pay in place
-                
-            state: CatchAllLocal
-                q: noMatch
-                a: Sorry, this isn't supported.
-
+        state: MeetingRoom
+            a: We have a nice hall with a round table!
+            go!: /Pay
+            
+        state: Auditorium
+            a: Unfortunately, we don't have any available.
 
         state: Decline
-            q: * (~no | ~not) *
+            q!: * (~no | ~not | ~nevermind | ~cancel) *
             a: Oh, well...
             go!: /Bye/ByeBye
             
         state: LocalCatchAll
             event: noMatch
-            a: Just yes or no please!
+            a: I don't think we have that
             
             
     state: Bye
@@ -59,3 +57,17 @@ theme: /
                 a: See ya!
                 a: Salut!
                 
+                
+    state: Pay || modal = true
+        a: How would you like to pay?
+        buttons:
+            "Bank card"
+            "Cash"
+            
+        state: Any
+            q: * (~card | ~cash) *
+            a: You can pay in place
+            
+        state: CatchAllLocal
+            q: noMatch
+            a: Sorry, this isn't supported.
