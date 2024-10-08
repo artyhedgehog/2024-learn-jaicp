@@ -4,7 +4,9 @@ theme: /
     
     init:
         bind('postProcess', function ($context) {
-            log(toPrettyString($context));
+            log('currentState' + toPrettyString($context.currentState));
+            log('contextPath' + toPrettyString($context.contextPath));
+
         });
     
     state: Start
