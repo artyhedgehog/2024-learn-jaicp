@@ -3,7 +3,7 @@ name: basic-starter-bot
 entryPoint: main.sc
 
 injector:
-    botName: Sofia
+    botName: sofia
 
 botEngine: v2
 language: en
