@@ -4,7 +4,7 @@ theme: /
     
     state: Start
         q!: *start
-        q!: $hello
+        q!: * $hello *
         q: * (~no [~thank]|~cancel|~stop|~quit|~exit) * || fromState = /Book 
         q: * (~no [~thank]|~cancel|~stop|~quit|~exit) * || fromState = /CatchAll
         random:
@@ -16,10 +16,7 @@ theme: /
     state: CatchAll || noContext = true
         event!: noMatch
         random:
-            a: Forstor ikke, men veldig interessant!
-            a: Hva?
             a: Come again?
-        random:
             a: Could you try rephrasing?
             a: Can you repeat in other words?
             
