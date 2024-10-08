@@ -5,11 +5,12 @@ theme: /
     state: Start
         q!: *start
         q!: $hello
+        q: * (~no [~thank]|~cancel|~stop|~quit|~exit) * || fromState = /Book 
         random:
             a: Hello, world!
             a: Greetings!
             a: Who's there?!
-        go!: /BookAWorkplace
+        go!: /Book
         
     state: CatchAll || noContext = true
         event!: noMatch
@@ -21,7 +22,7 @@ theme: /
             a: Could you try rephrasing?
             a: Can you repeat in other words?
             
-    state: BookAWorkplace || modal = true
+    state: Book || modal = true
         a: What would you like to book?
         buttons:
             "A workplace" -> Workplace
