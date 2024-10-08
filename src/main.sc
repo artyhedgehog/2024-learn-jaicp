@@ -19,7 +19,7 @@ theme: /
             a: Come again?
             
             
-    state: BookAWorkplace
+    state: BookAWorkplace ||modal = true
         q!: * (~book) *
         a: What would you like to book?
         buttons:
@@ -43,7 +43,7 @@ theme: /
             a: Oh, well...
             go!: /Bye/ByeBye
             
-        state: LocalCatchAll
+        state: LocalCatchAll || modal = false, noContext = true
             event: noMatch
             a: I don't think we have that
             
