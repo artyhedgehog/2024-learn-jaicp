@@ -17,7 +17,7 @@ theme: /
             $response.replies = $response.replies || [];
             $response.replies.push({
                 type: 'image',
-                imageUrl: 'https://unsplash.com/photos/modern-office-interior-design-concept-3d-rendering-idea-MSyHhSCEevs',
+                imageUrl: 'https://plus.unsplash.com/premium_photo-1661962361446-f450f3f21495?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                 text: 'Coworking',
             });
         go!: /Book
