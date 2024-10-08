@@ -3,7 +3,7 @@ require: ./patterns.sc
 theme: /
     
     state: Start
-        q!: $regex</start>
+        q!: *start
         q!: $hello
         random:
             a: Hello, world!
@@ -17,10 +17,11 @@ theme: /
             a: Forstor ikke, men veldig interessant!
             a: Hva?
             a: Come again?
+        random:
+            a: Could you try rephrasing?
+            a: Can you repeat in other words?
             
-            
-    state: BookAWorkplace ||modal = true
-        q!: * (~book) *
+    state: BookAWorkplace || modal = true
         a: What would you like to book?
         buttons:
             "A workplace" -> Workplace
@@ -46,7 +47,7 @@ theme: /
         state: LocalCatchAll || modal = false, noContext = true
             event: noMatch
             a: I don't think we have that
-            
+            go!: ..
             
     state: Bye
         
