@@ -19,7 +19,7 @@ theme: /
             a: Come again?
             
             
-    state: BookAWorkplace || modal = true
+    state: BookAWorkplace
         q!: * (~book) *
         a: What would you like to book?
         buttons:
