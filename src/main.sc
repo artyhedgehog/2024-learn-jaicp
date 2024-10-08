@@ -2,6 +2,11 @@ require: ./patterns.sc
 
 theme: /
     
+    init:
+        bind('postProcess', function ($context) {
+            log(toPrettyString($context));
+        });
+    
     state: Start
         script:
             $temp.botName = capitalize($injector.botName)
