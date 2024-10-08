@@ -61,8 +61,8 @@ theme: /
             }
         if: $request.channelType === 'telegram'
             inlineButtons:
-                {text: "Bank card", url: 'https://alfabank.ru/'}
-                {text: 'Cash', url: 'https://alfabank.ru/atm/map'}
+                {text: "Bank card", url: "https://alfabank.ru/"}
+                {text: "Cash", url: "https://alfabank.ru/atm/map"}
         else:
             buttons:
                 "Bank card"
