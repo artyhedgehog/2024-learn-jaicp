@@ -61,8 +61,8 @@ theme: /
             }
         if: $request.channelType === 'telegram'
             inlineButtons:
-                $temp.buttons.bankCard
-                $temp.buttons.cash
+                {{$temp.buttons.bankCard}}
+                {{$temp.buttons.cash}}
         else:
             buttons:
                 "Bank card"
