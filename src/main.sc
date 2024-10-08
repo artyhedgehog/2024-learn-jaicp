@@ -73,3 +73,4 @@ theme: /
         state: CatchAllLocal
             q: noMatch
             a: Sorry, this isn't supported.
+            go!: ..
