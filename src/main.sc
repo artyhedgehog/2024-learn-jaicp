@@ -40,25 +40,11 @@ theme: /
         state: Auditorium
             a: Unfortunately, we don't have any available.
 
-        state: Decline
-            q!: no
-            a: Oh, well...
-            go!: /Bye/ByeBye
-            
         state: LocalCatchAll
             event: noMatch
             a: I don't think we have that
             go!: ..
             
-    state: Bye
-        
-        state: ByeBye
-            event: noMatch
-            random: 
-                a: Bye!
-                a: See ya!
-                a: Salut!
-                
                 
     state: Pay || modal = true
         a: How would you like to pay?
