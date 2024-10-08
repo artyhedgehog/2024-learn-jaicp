@@ -4,8 +4,8 @@ theme: /
     
     init:
         bind('postProcess', function ($context) {
-            log('currentState' + toPrettyString($context.currentState));
-            log('contextPath' + toPrettyString($context.contextPath));
+            log('currentState: ' + toPrettyString($context.currentState));
+            log('contextPath: ' + toPrettyString($context.contextPath));
 
         });
     
