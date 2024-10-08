@@ -38,7 +38,7 @@ theme: /
             a: Come again?
             a: Could you try rephrasing?
             a: Can you repeat in other words?
-        go: /Start
+        go!: $context.session.lastState
             
     state: Book || modal = true
         a: What would you like to book?
