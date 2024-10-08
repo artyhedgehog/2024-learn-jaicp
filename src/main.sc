@@ -44,7 +44,7 @@ theme: /
             a: Oh, well...
             go!: /Bye/ByeBye
             
-        state: LocalCatchAll || modal = false, noContext = true
+        state: LocalCatchAll
             event: noMatch
             a: I don't think we have that
             go!: ..
