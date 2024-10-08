@@ -39,7 +39,7 @@ theme: /
             a: Unfortunately, we don't have any available.
 
         state: Decline
-            q!: * (~no | ~not | ~nevermind | ~cancel) *
+            q!: * (~no|~not|~nevermind|~cancel) *
             a: Oh, well...
             go!: /Bye/ByeBye
             
