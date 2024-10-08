@@ -3,6 +3,9 @@ require: ./patterns.sc
 theme: /
     
     state: Start
+        init:
+            $temp.botName = capitalize($injector.botName)
+        
         q!: *start
         q!: * $hello *
         q: * (~no [~thank]|~cancel|~stop|~quit|~exit) * || fromState = /Book 
@@ -12,7 +15,7 @@ theme: /
             a: Greetings, {{$request.channelType}}!
             a: Who's there in {{$request.channelType}}?!
         if: $injector.botName
-            a: My name is {{$injector.botName}}!
+            a: My name is {{$temp.botName}}!
         script:
             $response.replies = $response.replies || [];
             $response.replies.push({
