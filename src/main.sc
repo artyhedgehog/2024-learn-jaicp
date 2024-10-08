@@ -3,7 +3,7 @@ require: ./patterns.sc
 theme: /
     
     state: Start
-        init:
+        script:
             $temp.botName = capitalize($injector.botName)
         
         q!: *start
