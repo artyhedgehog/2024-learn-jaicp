@@ -14,7 +14,7 @@ theme: /
             a: Hello, {{$request.channelType}}!
             a: Greetings, {{$request.channelType}}!
             a: Who's there in {{$request.channelType}}?!
-        if: $injector.botName
+        if: $temp.botName
             a: My name is {{$temp.botName}}!
         script:
             $response.replies = $response.replies || [];
