@@ -6,7 +6,7 @@ theme: /
         bind('postProcess', function ($context) {
             log('$context: ' + toPrettyString($context));
             
-            $context.session.lastState = $context.currentState;
+            $context.session.lastState = $context.contextPath;
         });
     
     state: Start
