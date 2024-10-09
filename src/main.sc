@@ -4,7 +4,8 @@ theme: /
     
     init:
         bind('postProcess', function ($context) {
-            log('$context: ' + toPrettyString($context));
+            log('DEBUG: $currentState: ' + $context.currentState);
+            log('DEBUG: $context: ' + toPrettyString($context));
             
             $context.session.lastState = $context.currentState;
         });
@@ -12,7 +13,7 @@ theme: /
     state: Start
         script:
             $temp.botName = capitalize($injector.botName)
-            log('Start: $parseTree: ' + toPrettyString($parseTree));
+            log('DEBUG: /Start: $parseTree: ' + toPrettyString($parseTree));
         
         q!: *start
         q!: * $hello *
