@@ -70,16 +70,11 @@ theme: /
     state: Pay || modal = true
         a: How would you like to pay?
         script:
-            $temp.buttons = {
-                bankCard: {
-                    text: "Bank card",
-                    url: 'https://alfabank.ru/',
-                },
-                cash: {
-                    text: 'Cash',
-                    url: 'https://alfabank.ru/atm/map',
-                },
-            }
+            var pickedOption = $context.query;
+            
+            log('Picked option')
+            
+            $context.session.pickedOption = 
         if: $request.channelType === 'telegram'
             inlineButtons:
                 {text: "Bank card", url: "https://alfabank.ru/"}
