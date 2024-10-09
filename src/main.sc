@@ -17,7 +17,7 @@ theme: /
         q!: *start
         q!: * $hello *
         q: * $cancel * || fromState = /Book 
-        q: * (~no [~thank]|~cancel|~stop|~quit|~exit|~abort) * || fromState = /Pay 
+        q: * $cancel * || fromState = /Pay 
         q: cancel || fromState = /CatchAll
         random:
             a: Hello, {{$request.channelType}}!
