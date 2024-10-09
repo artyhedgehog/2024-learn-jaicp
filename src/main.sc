@@ -72,9 +72,9 @@ theme: /
         script:
             var pickedOption = $context.query;
             
-            log('Picked option')
+            log('Picked option');
             
-            $context.session.pickedOption = 
+            $context.session.pickedOption = pickedOption;
         if: $request.channelType === 'telegram'
             inlineButtons:
                 {text: "Bank card", url: "https://alfabank.ru/"}
