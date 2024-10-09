@@ -48,10 +48,14 @@ theme: /
     
         state: Workplace
             a: There is a desk with a monitor and an armchair.
+            script:
+                $session.bookType = 'workplace';
             go!: /Pay
             
         state: MeetingRoom
             a: We have a nice hall with a round table!
+            script:
+                $session.bookType = 'meetingRoom';
             go!: /Pay
             
         state: Auditorium
@@ -80,13 +84,25 @@ theme: /
                 $temp.botName = capitalize($injector.botName)
                 log('DEBUG: /Start: $parseTree: ' + toPrettyString($parseTree));
 
-                var pickedOption = $parseTree._payCard && 'Bank card' || $parseTree._payCash && 'Cash';
+                var payWith = $parseTree._payCard && 'Bank card' || $parseTree._payCash && 'Cash';
                 
-                log('DEBUG: pickedOption: ' + pickedOption);
+                log('DEBUG: pickedOption: ' + payWith);
                 
-                $context.session.pickedOption = pickedOption;
+                $context.session.payWith = payWith;
 
             a: You can pay in place
+            a: How many places do you need?
+            
+            state: ConfirmBooking
+                q: * @duckling.number *
+                script:
+                    var places = $parseTree['_duckling.number'];
+                    
+                    var answer = $session.bookType === 'workplace' 
+                        ? "You've booked " + places + ' ' + $nlp.conform('workplace', places)
+                        : "You've booked a meeting room for " + places + ' ' + $nlp.conform('person', places);
+                    
+                    $reactions.answer(answer);
             
         state: CatchAllLocal
             q: noMatch
