@@ -72,7 +72,7 @@ theme: /
         script:
             var pickedOption = $context.query;
             
-            log('Picked option');
+            log('DEBUG: pickedOption: ' + pickedOption);
             
             $context.session.pickedOption = pickedOption;
         if: $request.channelType === 'telegram'
