@@ -80,7 +80,7 @@ theme: /
                 $temp.botName = capitalize($injector.botName)
                 log('DEBUG: /Start: $parseTree: ' + toPrettyString($parseTree));
 
-                var pickedOption = $context.query;
+                var pickedOption = $parseTree._payCard && 'Bank card' || $parseTree._payCash && 'Cash';
                 
                 log('DEBUG: pickedOption: ' + pickedOption);
                 
