@@ -1,3 +1,3 @@
 patterns:
-    $hello = * (~hello|~hi|~hola|~hei|~hallo|~hej) *
-    
+    $hello = (~hello|~hi|~hola|~hei|~hallo|~hej)
+    $cancel = (~no [~thank]|~cancel|~stop|~quit|~exit)

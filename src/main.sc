@@ -12,10 +12,12 @@ theme: /
     state: Start
         script:
             $temp.botName = capitalize($injector.botName)
+            log('Start: $parseTree: ' + toPrettyString($parseTree));
         
         q!: *start
         q!: * $hello *
-        q: * (~no [~thank]|~cancel|~stop|~quit|~exit) * || fromState = /Book 
+        q: * $cancel * || fromState = /Book 
+        q: * (~no [~thank]|~cancel|~stop|~quit|~exit|~abort) * || fromState = /Pay 
         q: cancel || fromState = /CatchAll
         random:
             a: Hello, {{$request.channelType}}!
