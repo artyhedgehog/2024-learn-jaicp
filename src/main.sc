@@ -11,10 +11,6 @@ theme: /
         });
     
     state: Start
-        script:
-            $temp.botName = capitalize($injector.botName)
-            log('DEBUG: /Start: $parseTree: ' + toPrettyString($parseTree));
-        
         q!: *start
         q!: * $hello *
         q: * $cancel * || fromState = /Book 
@@ -69,12 +65,6 @@ theme: /
                 
     state: Pay || modal = true
         a: How would you like to pay?
-        script:
-            var pickedOption = $context.query;
-            
-            log('DEBUG: pickedOption: ' + pickedOption);
-            
-            $context.session.pickedOption = pickedOption;
         if: $request.channelType === 'telegram'
             inlineButtons:
                 {text: "Bank card", url: "https://alfabank.ru/"}
@@ -85,7 +75,17 @@ theme: /
                 "Cash"
             
         state: Any
-            q: * (~card | ~cash) *
+            q: * ($payCard|$payCash) *
+            script:
+                $temp.botName = capitalize($injector.botName)
+                log('DEBUG: /Start: $parseTree: ' + toPrettyString($parseTree));
+
+                var pickedOption = $context.query;
+                
+                log('DEBUG: pickedOption: ' + pickedOption);
+                
+                $context.session.pickedOption = pickedOption;
+
             a: You can pay in place
             
         state: CatchAllLocal
